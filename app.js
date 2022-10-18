@@ -26,7 +26,7 @@ const io = new Server(http, {
   transports: ['polling', 'websocket']
 })
 mongoose.connect(
-  'mongodb://localhost:27017/ChatDB?retryWrites=true&w=majority',
+  'mongodb+srv://tuanh:112445@cluster0.fzwqayp.mongodb.net/ChatDB?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("Connected to MongoDB");

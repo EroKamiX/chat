@@ -118,16 +118,17 @@
         let username = '<%= user.username %>';
         chatApp.addUser(userCurrent, username);
         let userReceiver;
+        let conversation;
 
         $("form").submit((e) => {
             e.preventDefault();
         })
         $("#sendMessage").click(() => {
-            if (!userReceiver) {
+            if (!userReceiver || !conversation) {
                 return;
             }
             msg = $("#m").val();
-            chatApp.sendMessageClick(userCurrent, userReceiver, msg);
+            chatApp.sendMessageClick(userReceiver, conversation, msg);
             $(".chat-messages").append(`<div class="chat-message-right pb-4">
                                     <div>
                                         <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="${userCurrent}" width="40" height="40">
@@ -180,6 +181,7 @@
         function clickLi(converId, userId) {
             // userReceiver = $(this).attr('id');
             userReceiver = "" + userId;
+            conversation = "" + converId;
             $.ajax({
                 url: '/api/messages',
                 type: 'POST',

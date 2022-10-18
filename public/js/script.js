@@ -161,19 +161,19 @@ class ChatApp {
   }
   // End Event Click
 
-  sendMessageClick(userCurrentId, converId, msg) {
+  sendMessageClick(userReceiverId, converId, msg) {
     this.socket.emit(
       "sendMessage",
-      [userCurrentId, userReceiverId],
-      userCurrentId,
+      [this.userCurrent, userReceiverId],
+      this.userCurrent,
       msg
     );
     $.ajax({
       url: '/api/messages/send',
       type: 'POST',
       data: {
-        sender: userCurrentId,
-        conversation: converId,
+        sender: this.userCurrent,
+        conversationId: converId,
         text: msg
       },
       success: function (data) {
