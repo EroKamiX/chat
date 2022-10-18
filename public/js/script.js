@@ -1,4 +1,4 @@
-const domain = "http://" + window.location.hostname + ":3000";
+const domain = "http://" + window.location.hostname;
 console.log(domain);
 class ChatApp {
   socket = io(domain);
