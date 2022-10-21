@@ -2,11 +2,10 @@
 <html>
 
 <head>
-    <title>Status User On Socket</title>
     <html>
 
     <head>
-        <title>Chat Nào Mọi Người ơi</title>
+        <title>Chat Nào Mọi Người Ơi</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <!-- CSS only -->
@@ -19,12 +18,24 @@
     </head>
 
 <body>
-
-
     <main class="content">
         <div class="container p-0">
-
-            <h1 class="h3 mb-3">Messages</h1>
+            <div class="row">
+                <h1 class="h3 col-md-9">Messages</h1>
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <span>xin chào</span> <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span><%= user.username %></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="#">Profile</a></li>
+                          <li><a class="dropdown-item" href="/api/auth/logout">Logout</a></li>
+                        </ul>
+                      </div>
+                    
+                </div>
+                
+            </div>
 
             <div class="card">
                 <div class="row g-0">
@@ -165,10 +176,11 @@
                     $("#users").append(
                         $(`<a href="#" class="list-group-item list-group-item-action border-0" onClick="clickLi('${conversations._id}','${conversations.members[0]._id}')">
                             <div class="badge bg-success float-right"></div>
-                            <div class="d-flex align-items-start" id="'${conversations.members[0]._id}'">
+                            <div class="d-flex align-items-start" id="${conversations.members[0]._id}">
                                 <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="rounded-circle mr-1" alt="${conversations.members[0]._id}" width="40" height="40">
-                                <div class="flex-grow-1 ml-3" data-id="${conversations.members[0]._id}">
+                                <div class="flex-grow-1 ml-3">
                                     ${conversations.members[0].username}
+                                    <div class="small isOnline">Offline</div>
                                 </div>
                             </div>
                         </a>`)

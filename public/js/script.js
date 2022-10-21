@@ -1,4 +1,4 @@
-const domain = window.location.protocol + "//" + window.location.hostname;
+const domain = window.location.protocol + "//" + window.location.hostname + ":3000";
 console.log(domain);
 class ChatApp {
   socket = io(domain);
@@ -99,10 +99,11 @@ class ChatApp {
         }
         let isOnline;
         if (user.socketDevice.length > 0) {
-          isOnline = `<div class="small"><span class="fas fa-circle chat-online"></span> Online</div>`;
+          isOnline = `<span class="fas fa-circle chat-online"></span> Online`;
         } else {
-          isOnline = `<div class="small">Offline</div>`;
+          isOnline = `Offline`;
         }
+        $(`#${user.id} .isOnline`).text(isOnline);
         // $("#users").append(
         //   $(`<a href="#" class="list-group-item list-group-item-action border-0" onClick="clickLi('${user.id}')">
         //                     <div class="badge bg-success float-right"></div>

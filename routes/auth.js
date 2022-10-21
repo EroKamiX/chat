@@ -71,4 +71,8 @@ router.get("/takedatauser/:mail", async (req, res) => {
   const user = await User.findOne({ username: req.params.mail }); // trả về null
   res.json(user);
 });
+
+router.get("/logout",(req, res) => {
+  return res.clearCookie("token_id").redirect("/login");
+});
 module.exports = router;
