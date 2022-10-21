@@ -1,4 +1,5 @@
-const domain = window.location.protocol + "//" + window.location.hostname + ":3000";
+let hostname = (window.location.hostname.includes("herokuapp")) ? window.location.hostname : window.location.hostname + ":3000"
+const domain = window.location.protocol + "//" + hostname;
 console.log(domain);
 class ChatApp {
   socket = io(domain);
