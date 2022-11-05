@@ -104,7 +104,9 @@ class ChatApp {
         } else {
           isOnline = `Offline`;
         }
-        $(`#${user.id} .isOnline`).text(isOnline);
+        
+        $(`#${user.id} .isOnline`).empty();
+        $(`#${user.id} .isOnline`).append(isOnline);
         // $("#users").append(
         //   $(`<a href="#" class="list-group-item list-group-item-action border-0" onClick="clickLi('${user.id}')">
         //                     <div class="badge bg-success float-right"></div>
