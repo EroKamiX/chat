@@ -24,17 +24,20 @@
                 <h1 class="h3 col-md-9">Messages</h1>
                 <div class="col-md-3">
                     <div class="dropdown">
-                        <span>xin chào</span> <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span><%= user.username %></span>
+                        <span>xin chào</span> <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>
+                                <%= user.username %>
+                            </span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                          <li><a class="dropdown-item" href="#">Profile</a></li>
-                          <li><a class="dropdown-item" href="/api/auth/logout">Logout</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="/api/auth/logout">Logout</a></li>
                         </ul>
-                      </div>
-                    
+                    </div>
+
                 </div>
-                
+
             </div>
 
             <div class="card">
@@ -94,7 +97,88 @@
             </div>
         </div>
     </main>
-
+    <div class="popup_show popup_full_scr popup_call_chat365 back_w" id="popup_show_create_conf" style="z-index: 5; display: none;">
+        <div class="container_popup position_r">
+            <div class="box_popup box_popup_conference position_r">
+                <div class="body_video_call">
+                <div class="header_popup_conference d_flex space_b position_r" style="position:absolute;width: 100%;justify-content: end;">
+                    <div class="header_popup_r d_flex align_c position_r">
+                        <!-- <img class="add_user mr_10" src="../images/img_add_user.png" alt=""> -->
+                        <div class="list_user_join_conf color_white font_s14 d_flex space_b">
+                            <div class="item_user d_flex flex_column align_c">
+                                <!-- <img src="../images/7.png" alt=""> -->
+                                <p class="p_name_chon text_a_c" id="count_time_call"><span class="time_h">00</span>:<span class="time_p">01</span>:<span class="time_g">05</span></p>
+                                <img style="width: 100px;height:100px;display: none;" id="camLocalOnOff" src="images/camClose.png" alt="Cam Status" srcset="">
+                                <video width="200px" id="localVideo" autoplay="" muted="" playsinline=""></video>
+                            </div>
+                            <div class="item_user item_user_more d_flex flex_center align_c position_r cursor_p">
+                                <img src="../images/coun_overlay.png" alt="">
+                                <p class="p_name_chon font_s18 line_h22 font_w400 text_a_c">+4</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="body_popup_conference d_flex just_c_c">
+                    <img width="500px" id="camRemoteOnOff" src="../images/camClose.png" alt="Cam Remote Status" style="display: none">
+                    <img class="off_mic_call" src="../images/images_chat/iconMicOff.png" alt="mic off" style="display:none;">
+                    <img class="hand_wave" src="../images/video_call/wave_hand.gif" alt="vẫy tay" style="display: none;">
+                    <video style="width: 55vw;height: 100vh;" id="remoteVideo" autoplay="" playsinline=""></video>
+                </div>
+                </div>
+                <div class="footer_popup_conference d_flex space_b color_white font_s16">
+                    <div class="footer_popup_l d_flex align_c space_b">
+                    </div>
+                    <div class="footer_popup_c d_flex align_c">
+                            <div id="option_tb" style="display: none;">
+                                <p>Chọn một Camera</p>
+                                <div class="item_option_tb"></div>
+                            </div>
+                            <div class="call_camera">
+                                <img id="setCam" class="cursor_p" src="../images/video_call/camOn.png" alt="camera">
+                                <img id="show_op_cam" src="../images/video_call/i_dropup.png" alt="mũi tên">
+                            </div>
+                        <img class="mic_off item_footer cursor_p" src="../images/mic_off.png" alt="" style="display: none;">
+                        <img class="end_call cursor_p" src="../images/end_call.png" alt="" style="display: none;">
+                        <img class="cursor_p" src="../images/end_calling.png" id="endcall" alt="" style="margin-right: 40px">
+                            <div id="option_tb_mic" style="display: none;">
+                                <p>Chọn một Mic</p>
+                                <div class="item_option_tb"></div>
+                            </div>
+                            <div class="call_mic">
+                                <img class="cursor_p" src="../images/video_call/micOn.png" id="setMic" alt="mic">
+                                <img id="show_op_mic" src="../images/video_call/i_dropup.png" alt="mũi tên">
+                            </div>
+                        <img style="border-radius: 50%;height:50px;width:50px;border: 1px solid #fff;" class="cursor_p" src="../images/images_chat/share_screen.png" id="screenShare" alt="">
+                        <img style="border-radius: 50%;height:50px;width:50px;border: 1px solid #fff;display:none;" class="cursor_p" src="../images/images_chat/off_sharesreen.png" id="offscreenShare" alt="">
+                    </div>
+                    <div class="footer_popup_r d_flex align_c space_b">
+                    <img class="cursor_p" src="../images/video_call/ic_switch_camera.png" id="switchCam" alt="">
+                        <!-- <div class=" tro_chuyen d_flex flex_column align_c cursor_p">
+                            <img src="../images/img_chat_w.png" alt="">
+                            <p>Trò chuyện</p>
+                        </div> -->
+                        <div class="div_waves_hand">
+                            <img id="waves_hand" class="cursor_p" src="../images/video_call/wave_hand.gif" alt="vẫy tay">
+                            <span>Vẫy tay</span>
+                        </div>
+                        <img id="option_view_1" src="../images/video_call/option_view_1.png" alt="chia đôi màn hình" style="display: none">
+                        <img id="option_view_2" src="../images/video_call/option_view_2.png" alt="tắt chia đôi màn hình">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup_show popup_end_rec back_white" id="popup_show_call_mess" style="z-index: 5; display: none;">
+        <div class="container_popup">
+            <div class="box_popup_end_rec align_c d_flex flex_column space_b">
+                <p class="font_s18 font_wB color_grey text_a_c text_nhan_goi"></p>
+                <div style="width: 100%;display: flex;justify-content: space-around;">
+                <p id="answer_call" class="font_s16 font_wB color_grey text_a_c" type_call="1" data-id="2">Trả lời</p>
+                <p id="reject" class="font_s16 font_wB color_grey text_a_c">Hủy</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <!-- JavaScript Bundle with Popper -->
@@ -131,6 +215,14 @@
         let userReceiver;
         let conversation;
 
+        function callClick() {
+            chatApp.callClick(userReceiver, conversation);
+        }
+
+        $('#answer_call').click((e) => {
+            chatApp.answereClick(userCurrent, userReceiver);
+        });
+
         $("form").submit((e) => {
             e.preventDefault();
         })
@@ -140,10 +232,11 @@
             }
             msg = $("#m").val();
             chatApp.sendMessageClick(userReceiver, conversation, msg);
+            let msgDate = new Date();
             $(".chat-messages").append(`<div class="chat-message-right pb-4">
                                     <div>
                                         <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="${userCurrent}" width="40" height="40">
-                                        <div class="text-muted small text-nowrap mt-2">2:34 am</div>
+                                        <div class="text-muted small text-nowrap mt-2">${msgDate.getHours()}:${msgDate.getMinutes()}</div>
                                     </div>
                                     <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
                                         <div class="font-weight-bold mb-1">Bạn</div>
@@ -151,7 +244,7 @@
                                     </div>
                                 </div>`);
             $("#m").val("");
-
+            $(".chat-messages").scrollTop($(".chat-messages").get(0).scrollHeight);
             return false;
         });
         // $("#users").append(
@@ -224,7 +317,7 @@
                                                 d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                                             </path>
                                         </svg></button>
-                                    <button class="btn btn-info btn-lg mr-1 px-3 d-none d-md-inline-block"><svg
+                                    <button class="btn btn-info btn-lg mr-1 px-3 d-none d-md-inline-block" onClick=callClick()><svg
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                             class="feather feather-video feather-lg">
@@ -250,11 +343,11 @@
                             senderName = msg.sender.username;
                             isSelf = "left";
                         }
-
+                        let msgDate = new Date(Date.parse(msg.createdAt));
                         $(".chat-messages").append(`<div class="chat-message-${isSelf} pb-4">
             <div>
                 <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                <div class="text-muted small text-nowrap mt-2">2:34 am</div>
+                <div class="text-muted small text-nowrap mt-2">${msgDate.getHours()}:${msgDate.getMinutes()}</div>
             </div>
             <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
                 <div class="font-weight-bold mb-1">${senderName}</div>
@@ -263,6 +356,7 @@
         </div>`);
                     })
                     $("#chat-messages").show();
+                    $(".chat-messages").scrollTop($(".chat-messages").get(0).scrollHeight);
                     $("#form-chat").show();
                     // $("#boxChat").append(data);
                 }
