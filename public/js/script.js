@@ -260,6 +260,7 @@ socketOnGetAllUser() {
                 ${data.msg}
             </div>
         </div>`);
+        $(".chat-messages").scrollTop($(".chat-messages").get(0).scrollHeight);
       console.log(this.messageNotification);
     });
   }
