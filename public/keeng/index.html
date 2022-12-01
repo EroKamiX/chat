@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keeng data</title>
+</head>
+
+<body>
+    <div id="item-url">
+        
+    </div>
+    
+</body>
+<script type="text/javascript" language="javascript" src="/jquery-3.6.1.min.js"></script>      
+<script src="/keeng.js"></script>
+<script>
+    for (const key in data) {
+        $("#item-url").append(`<a class="url-keeg" href="${data[key].url}">
+            <h2 class="content">
+                ${data[key].url}
+            </h2>
+        </a>`)
+    }
+</script>
+</html>
